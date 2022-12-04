@@ -1,0 +1,26 @@
+version: "3.7"
+services:
+  monitorr:
+    image: monitorr/monitorr
+    container_name: monitorr
+    ports:
+      - 8080:80
+    restart: unless-stopped
+    environment:
+      - PUID=1026
+      - PGID=100
+      - TZ=America/New_York
+    volumes:
+      - /volume1/NAS/DockerData/monitorr:/app
+
+
+
+##docker create \
+    --name=monitorr \
+    --restart=on-failure \
+    -v <host path for app data>:/app \
+    -e TZ=<timezone> \
+    -e PGID=<groupid> \
+    -e PUID=<userid> \
+    -p 80:80 \
+    monitorr/monitorr
