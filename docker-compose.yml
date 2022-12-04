@@ -11,9 +11,8 @@ services:
       - PGID=100
       - TZ=America/New_York
     volumes:
-      - /volume1/NAS/DockerData/monitorr:/app
-
-
+      - /volume1/NAS/DockerData/monitorr/app:/app
+      - /volume1/NAS/DockerData/monitorr/config:/config
 
 # ##docker create \
 #     --name=monitorr \
